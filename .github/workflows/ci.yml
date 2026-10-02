@@ -1,27 +1,38 @@
 name: Java CI with Gradle
 
+# The following part is when events happen ("on:")
+# For example, every time someone pushes to the "main" branch, we want to trigger the job workflow.
+# Or when everytime when a pull request gets created with the master branch as the target, the job workflow will be executed.
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
+# This is the actual workflow that will get executed based on previous events.
+
 jobs:
-  build:
+  build:      # Can be named something else. It is arbitrary (name of the job)
+              # A job groups a set of actions which will be executed
     runs-on: ubuntu-latest
 
     steps:
+      # The checkout is a reusable code from the actions.yaml file from the checkout repo to check out the code first
       - uses: actions/checkout@v4
 
       - name: Set up JDK 8
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v4 # Prepares your environment with the Java version mentioned ("version 8" in this case)
         with:
           java-version: '8'
           distribution: 'temurin'
           cache: gradle
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: chmod +x gradlew # Changes the permission of the Gradle file
 
       - name: Build with Gradle
         run: ./gradlew build
+# Tip:
+        # uses: select an action
+        # run: runs a command-line command
