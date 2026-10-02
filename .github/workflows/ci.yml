@@ -36,3 +36,14 @@ jobs:
 # Tip:
         # uses: select an action
         # run: runs a command-line command
+
+        # Docker Action to build and push to a Docker Hub private repo
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v7
+        with:
+          image: unkownoperand/demo-app    #docker_ID/repo_name
+          tags: v1, latest
+          registry: registry-url.io
+          dockerfile: Dockerfile.ci
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
