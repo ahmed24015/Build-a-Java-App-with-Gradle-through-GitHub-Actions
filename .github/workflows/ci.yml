@@ -16,6 +16,7 @@ jobs:
   build:      # Can be named something else. It is arbitrary (name of the job)
               # A job groups a set of actions which will be executed
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       # The checkout is a reusable code from the actions.yaml file from the checkout repo to check out the code first
