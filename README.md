@@ -1,5 +1,5 @@
 # Build-a-Java-App-with-Gradle-through-GitHub-Actions
-Build a Java App with Gradle, then build a Docker image and push it to a Docker repository on Docker Hub.
+Build a Java App with Gradle, then build a Docker image after it passes through GitHub Actions and push it to a Docker repository on Docker Hub.
 
 
 # Challenges met during the Project
